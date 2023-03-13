@@ -1,8 +1,11 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  position: relative;
 }
 
 #main-container-1 {
@@ -11,6 +14,7 @@
   align-items: center;
   gap: 10%;
   max-width: 1120px;
+  padding: 33px 0 43px;
 }
 
 #logo-container {
@@ -25,5 +29,67 @@
 }
 
 #main-container-2 {
-  background-image: url("C:Users૎rÞsktopToma_project\assetsmain2imagesRectangle.svg");
+  padding: 170px 20vw 113px 10vw;
+  background: url("../assets/main2/images/Rectangle.svg");
+  background-repeat: no-repeat;
+  background-origin: padding-box;
+  background-size: auto;
+}
+
+#main-container-2 h1 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 80px;
+}
+
+#main-container-2 button {
+  background-color: #005FA3;
+  color: #fff;
+  padding: 19px 35px;
+  border: none;
+  margin-bottom: 120px;
+}
+
+#sliders1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#circle-slider {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 113px;
+}
+
+.circle {
+  background-color: #fff;
+  opacity: 0.4;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.circle:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+#button-slider {
+  display: flex;
+}
+
+.btn-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  opacity: 0.4;
+  width: 60px;
+  height: 60px;
+}
+
+.btn-switch:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }/*# sourceMappingURL=styles.css.map */

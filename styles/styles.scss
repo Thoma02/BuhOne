@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#main-container-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    max-width: 1120px;
+}
+
+#logo-container {
+    display: flex;
+    align-items: center;
+}
+
+#navi-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+/////// 2 //////
+
+#main-container-2 {
+    background-image: url("C:\Users\Acer\Desktop\Toma_project\assets\main2\images\Rectangle.svg");
+}

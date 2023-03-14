@@ -43,10 +43,10 @@ p {
 
 #main-container-2 {
   padding: 170px 20vw 113px 10vw;
-  background: url("../assets/main2/images/Rectangle.svg");
+  background: url("https://cdn2.thecatapi.com/images/NwMUoJYmT.jpg");
   background-repeat: no-repeat;
   background-origin: border-box;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 #main-container-2 h1 {

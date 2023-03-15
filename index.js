@@ -247,5 +247,3 @@ showMaine.addEventListener("click", function showInfo() {
             getDescription(40, data)
         })
 })
-
-

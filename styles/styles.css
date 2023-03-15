@@ -14,39 +14,58 @@ p {
   font-family: "Lato", sans-serif;
 }
 
-#main-container-1 {
+#desktop-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 33px 20vw 43px 10vw;
+  padding: 33px 10vw 43px 10vw;
   margin: auto;
 }
 
-#logo-container {
+#mobile-header {
+  display: none;
+}
+
+.logo-container {
   display: flex;
   align-items: center;
   gap: 30px;
 }
 
-#logo-container span {
+.logo-container span {
   color: #005FA3;
   font-size: 36px;
   font-weight: 900;
 }
 
-#navi-list {
+#navi-list-desktop {
   display: flex;
   list-style: none;
   font-size: 24px;
   gap: 20px;
 }
 
+#burger-icon {
+  display: none;
+}
+
+#burger-icon:hover {
+  cursor: pointer;
+  background-color: #284a81;
+}
+
+.black-line {
+  height: 3px;
+  background-color: #000;
+  border-radius: 5px;
+}
+
 #main-container-2 {
   padding: 170px 20vw 113px 10vw;
-  background: url("../assets/main2/images/Rectangle.svg");
+  background: url("https://cdn2.thecatapi.com/images/NwMUoJYmT.jpg");
   background-repeat: no-repeat;
   background-origin: border-box;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 #main-container-2 h1 {
@@ -180,8 +199,34 @@ p {
 }
 
 @media screen and (max-width: 1024px) {
-  #main-container-1 {
+  #desktop-header {
     flex-direction: column;
     gap: 20px;
+  }
+}
+@media screen and (max-width: 764px) {
+  #desktop-header {
+    display: none;
+  }
+  #mobile-navi {
+    display: flex;
+    justify-content: space-between;
+    padding: 33px 10vw 43px 10vw;
+  }
+  #mobile-header {
+    display: flex;
+    flex-direction: column;
+  }
+  #burger-icon {
+    display: flex;
+  }
+  #navi-list {
+    display: none;
+    text-align: center;
+    list-style: none;
+    font-size: 24px;
+    gap: 20px;
+    margin-top: -33px;
+    margin-bottom: 30px;
   }
 }/*# sourceMappingURL=styles.css.map */

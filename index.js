@@ -10,6 +10,25 @@ const myRightButton = document.getElementById("btn-right");
 
 const catTitle = document.getElementById("cat-name");
 
+const myBurgerIcon = document.getElementById("burger-icon");
+const myNavi = document.getElementById("navi-list");
+
+///
+
+myBurgerIcon.addEventListener("click", function displayNavi() {
+    const myNaviStyle =  getComputedStyle(myNavi, null)
+    if(myNaviStyle.display == "none") {
+        myNavi.style.display = "flex"
+        myNavi.style.flexDirection = "column"
+        myNavi.style.gap = 20
+    } else if(myNaviStyle.display == "flex") {
+        myNavi.style.display = "none"
+    }
+    console.log(myNaviStyle.display);
+})
+
+///
+
 const getName = (i, data) => {
     let name = data[i].name;
     catTitle.innerText = name;
@@ -19,15 +38,11 @@ myBengSelector.addEventListener("click", function getBengalImage() {
 
     fetch("https://api.thecatapi.com/v1/breeds")
         .then((data) => data.json())
-        .then((data) => {
-            getName(10, data);
-        })
+        .then((data) => getName(10, data))
 
     fetch("https://api.thecatapi.com/v1/images/search?limit=100&breed_ids=beng&api_key=live_y7qVxgAFuFGytLjRZccpbI5CGmv3LGoOm47AcaBmRs7EPYVzFEGrgYmFg2KppZTd")
         .then((data) => data.json())
-        .then((data) => {
-            main2.style.backgroundImage = `url(${data[17].url})`;
-        })
+        .then((data) => main2.style.backgroundImage = `url(${data[17].url})`)
 });
 
 
@@ -35,45 +50,33 @@ myAbysSelector.addEventListener("click", function getAbyssinianImage() {
 
     fetch("https://api.thecatapi.com/v1/breeds")
         .then((data) => data.json())
-        .then((data) => {
-            getName(0, data);
-        })
+        .then((data) => getName(0, data))
 
     fetch("https://api.thecatapi.com/v1/images/search?limit=100&breed_ids=abys&api_key=live_y7qVxgAFuFGytLjRZccpbI5CGmv3LGoOm47AcaBmRs7EPYVzFEGrgYmFg2KppZTd")
         .then((data) => data.json())
-        .then((data) => {
-            main2.style.backgroundImage = `url(${data[12].url})`;
-        })
+        .then((data) => main2.style.backgroundImage = `url(${data[12].url})`)
 })
 
 myRagdSelector.addEventListener("click", function getRagdImage() {
 
     fetch("https://api.thecatapi.com/v1/breeds")
         .then((data) => data.json())
-        .then((data) => {
-            getName(51, data);
-        })
+        .then((data) => getName(51, data))
 
     fetch("https://api.thecatapi.com/v1/images/search?limit=100&breed_ids=ragd&api_key=live_y7qVxgAFuFGytLjRZccpbI5CGmv3LGoOm47AcaBmRs7EPYVzFEGrgYmFg2KppZTd")
         .then((data) => data.json())
-        .then((data) => {
-            main2.style.backgroundImage = `url(${data[27].url})`;
-        })
+        .then((data) => main2.style.backgroundImage = `url(${data[27].url})`)
 })
 
 myMainSelector.addEventListener("click", function getMainImage() {
 
     fetch("https://api.thecatapi.com/v1/breeds")
         .then((data) => data.json())
-        .then((data) => {
-            getName(40, data);
-        })
+        .then((data) => getName(40, data))
 
     fetch("https://api.thecatapi.com/v1/images/search?limit=100&breed_ids=mcoo&api_key=live_y7qVxgAFuFGytLjRZccpbI5CGmv3LGoOm47AcaBmRs7EPYVzFEGrgYmFg2KppZTd")
         .then((data) => data.json())
-        .then((data) => {
-            main2.style.backgroundImage = `url(${data[4].url})`;
-        })
+        .then((data) => main2.style.backgroundImage = `url(${data[4].url})`)
 })
 
 const photosArrIDs = [17, 12, 27, 4];
@@ -102,9 +105,7 @@ myLeftButton.addEventListener("click", () => {
 
     fetch(`${photosArrURLs[counter]}`)
         .then((data) => data.json())
-        .then((data) => {
-            main2.style.backgroundImage = `url(${data[photosArrIDs[counter]].url})`
-        })
+        .then((data) => main2.style.backgroundImage = `url(${data[photosArrIDs[counter]].url})`)
 })
 
 myRightButton.addEventListener("click", () => {
@@ -124,9 +125,7 @@ myRightButton.addEventListener("click", () => {
 
     fetch(`${photosArrURLs[counter]}`)
         .then((data) => data.json())
-        .then((data) => {
-            main2.style.backgroundImage = `url(${data[photosArrIDs[counter]].url})`
-        })
+        .then((data) => main2.style.backgroundImage = `url(${data[photosArrIDs[counter]].url})`)
 })
 
 

@@ -9,9 +9,47 @@ const myLeftButton = document.getElementById("btn-left");
 const myRightButton = document.getElementById("btn-right");
 
 const catTitle = document.getElementById("cat-name");
+const catTitle2 = document.getElementById("cat-name-2");
 
 const myBurgerIcon = document.getElementById("burger-icon");
 const myNavi = document.getElementById("navi-list");
+
+const myRandomImages = document.getElementsByClassName("boxes")
+const myRandomCatNames = document.getElementsByClassName("box-text");
+
+const catDescription = document.getElementById("description");
+const getDescriptionButton = document.getElementById("description-button");
+
+const showBeng = document.getElementById("info-beng");
+const showAbys = document.getElementById("info-abys");
+const showRagd = document.getElementById("info-ragd");
+const showMaine = document.getElementById("info-maine");
+
+function randomNumber(min, max) {
+    let randomNum = Math.random() * (max - min) + min;
+    return parseInt(randomNum)
+}
+
+function getRandomImage(id) {
+
+    let num = randomNumber(1, 100);
+
+    fetch("https://api.thecatapi.com/v1/images/search?limit=100&api_key=live_y7qVxgAFuFGytLjRZccpbI5CGmv3LGoOm47AcaBmRs7EPYVzFEGrgYmFg2KppZTd")
+        .then((data) => data.json())
+        .then((data) => {
+            myRandomImages[id].style.backgroundImage = `url(${data[num].url})`
+            myRandomImages[id].style.backgroundSize = "cover"
+            console.log(myRandomImages[id].style)
+            myRandomCatNames[id].innerText = `${data[num].id}`
+        })
+}
+
+getRandomImage(0);
+getRandomImage(1);
+getRandomImage(2);
+getRandomImage(3);
+getRandomImage(4);
+getRandomImage(5);
 
 ///
 
@@ -34,11 +72,25 @@ const getName = (i, data) => {
     catTitle.innerText = name;
 }
 
+const getName2 = (i, data) => {
+    let name = data[i].name;
+    catTitle2.innerText = name;
+}
+
+const getDescription = (i, data) => {
+    let description = data[i].description;
+    catDescription.innerText = description;
+}
+
 myBengSelector.addEventListener("click", function getBengalImage() {
 
     fetch("https://api.thecatapi.com/v1/breeds")
         .then((data) => data.json())
-        .then((data) => getName(10, data))
+        .then((data) => {
+            getName(10, data);
+            getName2(10, data);
+            getDescription(10, data)
+        })
 
     fetch("https://api.thecatapi.com/v1/images/search?limit=100&breed_ids=beng&api_key=live_y7qVxgAFuFGytLjRZccpbI5CGmv3LGoOm47AcaBmRs7EPYVzFEGrgYmFg2KppZTd")
         .then((data) => data.json())
@@ -50,7 +102,11 @@ myAbysSelector.addEventListener("click", function getAbyssinianImage() {
 
     fetch("https://api.thecatapi.com/v1/breeds")
         .then((data) => data.json())
-        .then((data) => getName(0, data))
+        .then((data) => {
+            getName(0, data);
+            getName2(0, data);
+            getDescription(0, data)
+        })
 
     fetch("https://api.thecatapi.com/v1/images/search?limit=100&breed_ids=abys&api_key=live_y7qVxgAFuFGytLjRZccpbI5CGmv3LGoOm47AcaBmRs7EPYVzFEGrgYmFg2KppZTd")
         .then((data) => data.json())
@@ -61,7 +117,11 @@ myRagdSelector.addEventListener("click", function getRagdImage() {
 
     fetch("https://api.thecatapi.com/v1/breeds")
         .then((data) => data.json())
-        .then((data) => getName(51, data))
+        .then((data) => {
+            getName(51, data);
+            getName2(51, data);
+            getDescription(51, data)
+        })
 
     fetch("https://api.thecatapi.com/v1/images/search?limit=100&breed_ids=ragd&api_key=live_y7qVxgAFuFGytLjRZccpbI5CGmv3LGoOm47AcaBmRs7EPYVzFEGrgYmFg2KppZTd")
         .then((data) => data.json())
@@ -72,7 +132,11 @@ myMainSelector.addEventListener("click", function getMainImage() {
 
     fetch("https://api.thecatapi.com/v1/breeds")
         .then((data) => data.json())
-        .then((data) => getName(40, data))
+        .then((data) => {
+            getName(40, data);
+            getName2(40, data);
+            getDescription(40, data)
+        })
 
     fetch("https://api.thecatapi.com/v1/images/search?limit=100&breed_ids=mcoo&api_key=live_y7qVxgAFuFGytLjRZccpbI5CGmv3LGoOm47AcaBmRs7EPYVzFEGrgYmFg2KppZTd")
         .then((data) => data.json())
@@ -88,6 +152,21 @@ const nameIDs = [10, 0, 51, 40];
 
 let counter = 0;
 
+const getNameArrow = (counter, data) => {
+    let name = data[nameIDs[counter]].name;
+    catTitle.innerText = name;
+}
+
+const getNameArrow2 = (counter, data) => {
+    let name = data[nameIDs[counter]].name;
+    catTitle2.innerText = name;
+}
+
+const getDescriptionArrow = (counter, data) => {
+    let description = data[nameIDs[counter]].description;
+    catDescription.innerText = description;
+}
+
 myLeftButton.addEventListener("click", () => {
 
     if(counter > 0 && counter <= 3) {
@@ -99,8 +178,9 @@ myLeftButton.addEventListener("click", () => {
     fetch("https://api.thecatapi.com/v1/breeds")
         .then((data) => data.json())
         .then((data) => {
-            let name = data[nameIDs[counter]].name;
-            catTitle.innerText = name;
+            getNameArrow(counter, data);
+            getNameArrow2(counter, data);
+            getDescriptionArrow(counter, data);
         })
 
     fetch(`${photosArrURLs[counter]}`)
@@ -119,13 +199,53 @@ myRightButton.addEventListener("click", () => {
     fetch("https://api.thecatapi.com/v1/breeds")
         .then((data) => data.json())
         .then((data) => {
-            let name = data[nameIDs[counter]].name;
-            catTitle.innerText = name;
+            getNameArrow(counter, data);
+            getNameArrow2(counter, data);
+            getDescriptionArrow(counter, data);
         })
 
     fetch(`${photosArrURLs[counter]}`)
         .then((data) => data.json())
         .then((data) => main2.style.backgroundImage = `url(${data[photosArrIDs[counter]].url})`)
+})
+
+// Cat Info //
+
+showBeng.addEventListener("click", function showInfo() {
+    fetch("https://api.thecatapi.com/v1/breeds")
+        .then((data) => data.json())
+        .then((data) => {
+            getName2(10, data);
+            getDescription(10, data)
+        })
+})
+
+showAbys.addEventListener("click", function showInfo() {
+    fetch("https://api.thecatapi.com/v1/breeds")
+        .then((data) => data.json())
+        .then((data) => {
+            getName2(0, data);
+            getDescription(0, data)
+        })
+    console.log(showAbys);
+})
+
+showRagd.addEventListener("click", function showInfo() {
+    fetch("https://api.thecatapi.com/v1/breeds")
+        .then((data) => data.json())
+        .then((data) => {
+            getName2(51, data);
+            getDescription(51, data)
+        })
+})
+
+showMaine.addEventListener("click", function showInfo() {
+    fetch("https://api.thecatapi.com/v1/breeds")
+        .then((data) => data.json())
+        .then((data) => {
+            getName2(40, data);
+            getDescription(40, data)
+        })
 })
 
 

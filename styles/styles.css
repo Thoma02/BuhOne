@@ -45,6 +45,16 @@ p, a {
   gap: 20px;
 }
 
+@keyframes example {
+  from {
+    bottom: -2px;
+    opacity: 0;
+  }
+  to {
+    bottom: -10px;
+    opacity: 1;
+  }
+}
 .navi-li {
   position: relative;
 }
@@ -52,15 +62,17 @@ p, a {
 .navi-li::after {
   content: "";
   position: absolute;
-  display: none;
-  border-bottom: solid black 3px;
+  border-bottom: 3px solid black;
   width: 100%;
-  bottom: -10px;
+  bottom: -2px;
   left: 0;
+  opacity: 0;
+  transition: bottom 500ms;
 }
 
 .navi-li:hover::after {
-  display: inline-block;
+  bottom: -10px;
+  opacity: 0.8;
 }
 
 .navi-li:hover {
@@ -322,15 +334,17 @@ p, a {
 .show-info::after {
   content: "";
   position: absolute;
-  display: none;
   border-bottom: solid white 3px;
   width: 91px;
-  bottom: -10px;
+  bottom: -2px;
   left: 0;
+  opacity: 0;
+  transition: bottom 500ms;
 }
 
 .show-info:hover::after {
-  display: inline-block;
+  opacity: 1;
+  bottom: -10px;
 }
 
 .show-info:hover {

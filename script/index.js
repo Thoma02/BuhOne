@@ -16,8 +16,9 @@ const catTitle2 = document.getElementById("cat-name-2");
 const myBurgerIcon = document.getElementById("burger-icon");
 const myNavi = document.getElementById("navi-list");
 
-const myRandomImages = document.getElementsByClassName("boxes")
+const myRandomImages = document.getElementsByClassName("boxes");
 const myRandomCatNames = document.getElementsByClassName("box-text");
+const randomImagesURLs = document.getElementsByClassName("image-src");
 
 const catDescription = document.getElementById("description");
 const getDescriptionButton = document.getElementById("description-button");
@@ -224,8 +225,8 @@ function getRandomImage(id) {
         .then((data) => {
             myRandomImages[id].style.backgroundImage = `url(${data[num].url})`
             myRandomImages[id].style.backgroundSize = "cover"
-            console.log(myRandomImages[id].style)
             myRandomCatNames[id].innerText = `${data[num].id}`
+            randomImagesURLs[id].href = `${data[num].url}`
         })
 }
 

@@ -49,17 +49,6 @@ p, a {
     @include fontNavi()
 }
 
-@keyframes example {
-    from {
-        bottom: -2px;
-        opacity: 0;
-    }
-    to {
-        bottom: -10px;
-        opacity: 1;
-    }
-}
-
 .navi-li {
     position: relative;
 }
@@ -78,9 +67,6 @@ p, a {
 .navi-li:hover::after {
     bottom: -10px;
     opacity: 0.8;
-    // animation-name: example;
-    // animation-direction: top;
-    // animation-duration: 2s;
 }
 
 .navi-li:hover {
@@ -153,16 +139,6 @@ p, a {
     width: 1px;
     background-color: #fff;
 }
-
-// #background-image {
-//     position: absolute;
-//     right: 0;
-//     top: 0;
-//     z-index: -1;
-//     width: 100%;
-//     height: 50%;
-//     object-fit: fill;
-// }
 
 #circle-slider {
     display: flex;

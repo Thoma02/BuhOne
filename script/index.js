@@ -1,3 +1,5 @@
+// import { randomNumber } from "./reusable";
+
 // Variables //
 
 const main2 = document.getElementById("main-container-2");
@@ -79,14 +81,6 @@ myBurgerIcon.addEventListener("click", function displayNavi() {
 const getInfo = (i, data) => {
     let name = data[i].name;
     catTitle.innerText = name;
-    catTitle2.innerText = name;
-
-    let description = data[i].description;
-    catDescription.innerText = description;
-}
-
-const getInfo2 = (i, data) => {
-    let name = data[i].name;
     catTitle2.innerText = name;
 
     let description = data[i].description;
@@ -236,6 +230,14 @@ for(i = 0; i < 6; i++) {
 }
 
 // Cat Info //
+
+const getInfo2 = (i, data) => {
+    let name = data[i].name;
+    catTitle2.innerText = name;
+
+    let description = data[i].description;
+    catDescription.innerText = description;
+}
 
 showBeng.addEventListener("click", function showInfo() {
     fetch(catURL)

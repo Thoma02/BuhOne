@@ -36,12 +36,14 @@ p, a {
     display: flex;
     align-items: center;
     gap: 30px;
+    margin-top: -40px;
 }
 
 .logo-container span {
-    color: #005FA3;
+    color: #ff7c01;
     font-size: 36px;
     font-weight: 900;
+    padding-top: 40px;
 }
 
 #navi-list-desktop {
@@ -129,18 +131,18 @@ p, a {
     text-align: center;
 }
 
-#sliders1 {
+.sliders {
     display: flex;
     justify-content: space-between;
 }
 
-#divider-white {
+.divider-white {
     height: 60px;
     width: 1px;
     background-color: #fff;
 }
 
-#circle-slider {
+.circle-slider {
     display: flex;
     gap: 40px;
     margin-bottom: 113px;
@@ -159,7 +161,7 @@ p, a {
     cursor: pointer;
 }
 
-#button-slider {
+.button-slider {
     display: flex;
 }
 
@@ -208,7 +210,7 @@ p, a {
 .boxes {
     position: relative;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     background-image: url("../assets/main3/images/rectangle2.svg");
     width: 350px;
     height: 360px;
@@ -351,6 +353,59 @@ p, a {
     cursor: pointer;
 }
 
+//
+
+#main-container-5 {
+    background-color: #ebebeb;
+    padding: 100px 10vw;
+}
+
+#main-container-5 h1 {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 80px;
+}
+
+#logos-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 50px;
+    height: 124px;
+    overflow: hidden;
+}
+
+.cat-logos {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+#cat-corp {
+    left: 0;
+}
+
+#cat-sons {
+    left: 320px;
+}
+
+#cat-solutions {
+    left: 640px;
+}
+
+#cat-foods {
+    left: 1000px;
+}
+
+.cat-logos h2 {
+    color: #ff7c01;
+    font-size: 32px;
+    font-weight: 900;
+    margin-top: 40px;
+}
+
 @media screen and (max-width: 1024px) {
     #desktop-header {
         flex-direction: column;
@@ -387,3 +442,32 @@ p, a {
         margin-bottom: 30px;
     }
 }
+
+@media screen and (min-width:1140px) and (max-width:1530px) {
+    #logos-container {
+        max-width: 960px;
+    }
+}
+
+@media screen and (min-width: 660px) and (max-width:1140px) {
+    #logos-container {
+        max-width: 630px;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    #logos-container {
+        max-width: 310px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .sliders {
+        flex-direction: column;
+    }
+
+    .circle-slider {
+        margin-bottom: 50px;
+    }
+}
+

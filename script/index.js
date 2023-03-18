@@ -271,3 +271,78 @@ showMaine.addEventListener("click", function showInfo() {
             getInfo2(40, data);
         })
 })
+
+const catCorp = document.getElementById("cat-corp");
+const catSons = document.getElementById("cat-sons");
+const catSolutions = document.getElementById("cat-solutions");
+const catFoods = document.getElementById("cat-foods");
+
+const catCorpBtn = document.getElementById("cat-corp-btn");
+const catSonsBtn = document.getElementById("cat-sons-btn");
+const catSolutionsBtn = document.getElementById("cat-solutions-btn");
+const catFoodsBtn = document.getElementById("cat-foods-btn");
+
+const partnersBtnLeft = document.querySelector("#btn-left2");
+const partnersBtnRight = document.querySelector("#btn-right2");
+
+const transition1 = () => {
+    catCorp.style.left = 0;
+    catSons.style.left = '320px';
+    catSolutions.style.left = '640px';
+    catFoods.style.left = '1000px';
+}
+
+const transition2 = () => {
+    catSons.style.left = 0;
+    catSolutions.style.left = '320px';
+    catFoods.style.left = '660px';
+    catCorp.style.left = '960px';
+}
+
+const transition3 = () => {
+    catSolutions.style.left = 0;
+    catFoods.style.left = '350px';
+    catCorp.style.left = '640px';
+    catSons.style.left = '960px';
+}
+
+const transition4 = () => {
+    catFoods.style.left = 0;
+    catCorp.style.left = '320px';
+    catSons.style.left = '640px';
+    catSolutions.style.left = '960px';
+}
+
+catCorpBtn.addEventListener("click", transition1);
+
+catSonsBtn.addEventListener("click", transition2);
+
+catSolutionsBtn.addEventListener("click", transition3);
+
+catFoodsBtn.addEventListener("click", transition4);
+
+partnersBtnLeft.addEventListener("click", function transtionLeft() {
+    let catCorpStyles = getComputedStyle(catCorp, null);
+    if(catCorpStyles.left == '0px') {
+        transition2();
+    } else if(catCorpStyles.left == '960px') {
+        transition3();
+    } else if(catCorpStyles.left == '640px') {
+        transition4();
+    } else if(catCorpStyles.left == '320px') {
+        transition1();
+    }
+})
+
+partnersBtnRight.addEventListener("click", function transtionRight() {
+    let catCorpStyles = getComputedStyle(catCorp, null);
+    if(catCorpStyles.left == '0px') {
+        transition4();
+    } else if(catCorpStyles.left == '960px') {
+        transition1();
+    } else if(catCorpStyles.left == '640px') {
+        transition2();
+    } else if(catCorpStyles.left == '320px') {
+        transition3();
+    }
+})

@@ -406,6 +406,85 @@ p, a {
     margin-top: 40px;
 }
 
+//
+
+#main-container-6 {
+    position: relative;
+    padding: 140px 10vw;
+    background-color: #f9f9f9;
+}
+
+#main-container-6 h1 {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 80px;
+}
+
+.circle-blue {
+    background-color: #005FA3;
+}
+
+.btn-switch-blue {
+    background-color: #005FA3;
+}
+
+#cat-descriptions {
+    position: relative;
+    height: 360px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.post {
+    position: absolute;
+    background-color: #ebebeb;
+    padding: 45px 95px;
+    margin-bottom: 50px;
+    // opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#post-bengal {
+    z-index: 1;
+    // opacity: 1;
+}
+
+#post-abyssinian {
+    z-index: 0;
+    // opacity: 0;
+}
+
+#post-ragdoll {
+    z-index: 0;
+    // opacity: 0;
+}
+
+#post-maine-coon {
+    z-index: 0;
+    // opacity: 0;
+}
+
+.post p {
+    margin-bottom: 60px;
+}
+
+.catPhotoAndLinks {
+    display: flex;
+    gap: 30px;
+}
+
+.catPhotoAndLinks img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.catInfo-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 @media screen and (max-width: 1024px) {
     #desktop-header {
         flex-direction: column;

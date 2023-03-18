@@ -62,6 +62,8 @@ const imageDelay = () => {
     }, 250);
 }
 
+let counter = 0;
+
 /// Dropdown Menu //
 
 myBurgerIcon.addEventListener("click", function displayNavi() {
@@ -101,6 +103,7 @@ myBengSelector.addEventListener("click", function getBengalImage() {
             main2.style.backgroundImage = `url(${data[17].url})`;
             imageDelay();
         })
+    counter = 0;
 });
 
 myAbysSelector.addEventListener("click", function getAbyssinianImage() {
@@ -117,6 +120,7 @@ myAbysSelector.addEventListener("click", function getAbyssinianImage() {
             main2.style.backgroundImage = `url(${data[12].url})`;
             imageDelay();
         })
+    counter = 1;
 })
 
 myRagdSelector.addEventListener("click", function getRagdImage() {
@@ -133,6 +137,7 @@ myRagdSelector.addEventListener("click", function getRagdImage() {
             main2.style.backgroundImage = `url(${data[27].url})`;
             imageDelay();
         })
+    counter = 2;
 })
 
 myMainSelector.addEventListener("click", function getMainImage() {
@@ -149,6 +154,7 @@ myMainSelector.addEventListener("click", function getMainImage() {
             main2.style.backgroundImage = `url(${data[4].url})`;
             imageDelay();
         })
+    counter = 3;
 })
 
 // Arrow Buttons //
@@ -159,8 +165,6 @@ const photosArrURLs = [`${catImagesURL}&breed_ids=beng&${catAPI_Key}`,
 `${catImagesURL}&breed_ids=ragd&${catAPI_Key}`, 
 `${catImagesURL}&breed_ids=mcoo&${catAPI_Key}`];
 const nameIDs = [10, 0, 51, 40];
-
-let counter = 0;
 
 const getInfoArrow = (counter, data) => {
     let name = data[nameIDs[counter]].name;
@@ -346,3 +350,143 @@ partnersBtnRight.addEventListener("click", function transtionRight() {
         transition3();
     }
 })
+
+const catTitle3 = document.getElementById("cat-name-3");
+const catPost = document.getElementsByClassName("post");
+const bengalPost = document.getElementById("post-bengal");
+
+// const bengDescription = "A Bengal cat is a domestic cat breed that has a wild appearance with leopard-like spots or rosettes on its coat. <b>1,2,3,4</b> It is bred from the Asian leopard cat and other domestic cats, such as the Egyptian Mau, the Abyssinian, or the American shorthair. <b>1,3,4</b> It is a long, muscular, medium- to large-sized cat with a broad head, high cheekbones, round and wide eyes, and small and rounded ears. <b>1,5</b> It is a charismatic, playful, and smart cat that may be hypoallergenic. <b>1,2</b>";
+// const abysDescription = "The breed's distinctive appearance, seeming long, lean and finely colored compared to other cats, has been analogized to that of human fashion models. Personality-wise, the cats traditionally display active, curious attitudes in which they frequently follow owners around and encourage play. Their dog-like characteristics also involve a particular sense of affection and desire for interaction.";
+// const ragdDescription = "A ragdoll cat is a large and heavy breed of cat with a colorpoint coat and blue eyes. It has a semi-long and silky soft coat that may have white patterns. It is a slow-maturing breed that reaches full coat and color at about three years of age. It is an affectionate and intelligent cat that goes limp with pleasure when petted, hence its name. It has a long body, tail, and bones, and gives an impression of graceful movement and subdued power.";
+// const mainDescription = "The Maine Coon cat is a large, long-haired, and muscular breed that originated in North America, especially in Maine. It is one of the oldest natural breeds in the continent and the official state cat of Maine. It has a shaggy coat, tufted ears and paws, and a ringed tail that help it adapt to harsh climates and hunt rodents.";
+
+const bengDescriptionBtn = document.getElementById("bengal-description");
+const abysDescriptionBtn = document.getElementById("abyssinian-description");
+const ragdDescriptionBtn = document.getElementById("ragdoll-description");
+const mainDescriptionBtn = document.getElementById("maine-coon-description");
+
+const descriptionBtnLeft = document.getElementById("btn-left3");
+const descriptionBtnRight = document.getElementById("btn-right3");
+
+const getTitle = (i, data) => {
+    let name = data[i].name;
+    catTitle3.innerText = name;
+}
+
+let counterPosts = 0;
+
+const appear1 = () => {
+    catPost[0].style.zIndex = 1; 
+    catPost[1].style.zIndex = 0; 
+    catPost[2].style.zIndex = 0; 
+    catPost[3].style.zIndex = 0; 
+}
+
+const appear2 = () => {
+    catPost[0].style.zIndex = 0; 
+    catPost[1].style.zIndex = 1; 
+    catPost[2].style.zIndex = 0; 
+    catPost[3].style.zIndex = 0; 
+}
+
+const appear3 = () => {
+    catPost[0].style.zIndex = 0; 
+    catPost[1].style.zIndex = 0; 
+    catPost[2].style.zIndex = 1; 
+    catPost[3].style.zIndex = 0; 
+}
+
+const appear4 = () => {
+    catPost[0].style.zIndex = 0; 
+    catPost[1].style.zIndex = 0; 
+    catPost[2].style.zIndex = 0; 
+    catPost[3].style.zIndex = 1; 
+}
+
+bengDescriptionBtn.addEventListener("click", function changeDescription() {
+    fetch(catURL)
+        .then((data) => data.json())
+        .then((data) => {
+            getTitle(10, data);
+        }) 
+    appear1(); 
+    counterPosts = 0;
+})
+
+abysDescriptionBtn.addEventListener("click", function changeDescription() {
+    fetch(catURL)
+        .then((data) => data.json())
+        .then((data) => {
+            getTitle(0, data);
+        }) 
+    appear2(); 
+    counterPosts = 1;
+})
+
+ragdDescriptionBtn.addEventListener("click", function changeDescription() {
+    fetch(catURL)
+        .then((data) => data.json())
+        .then((data) => {
+            getTitle(51, data);
+        })  
+        appear3(); 
+        counterPosts = 2;
+})
+
+mainDescriptionBtn.addEventListener("click", function changeDescription() {
+    fetch(catURL)
+        .then((data) => data.json())
+        .then((data) => {
+            getTitle(40, data);
+        })  
+    appear4(); 
+    counterPosts = 3;
+})
+
+// const leftIndex = () => {
+
+// }
+
+descriptionBtnLeft.addEventListener("click", function changeDescriptionLeft() {
+
+    if(counterPosts == 0) {
+        appear4()
+    } else if(counterPosts == 1) {
+        appear1()
+    } else if(counterPosts == 2) {
+        appear2()
+    } else if(counterPosts == 3) {
+        appear3()
+    }
+
+    if(counterPosts > 0 && counterPosts <= 3) {
+        counterPosts -= 1;
+    } else {
+        counterPosts = 3;
+    } 
+    console.log(counterPosts);
+})
+
+descriptionBtnRight.addEventListener("click", function changeDescriptionLeft() {
+
+    if(counterPosts == 0) {
+        appear2()
+    } else if(counterPosts == 1) {
+        appear3()
+    } else if(counterPosts == 2) {
+        appear4()
+    } else if(counterPosts == 3) {
+        appear1()
+    }
+
+    if(counterPosts >= 0 && counterPosts < 3) {
+        counterPosts += 1;
+    } else {
+        counterPosts = 0
+    }
+    console.log(counterPosts);
+})
+
+
+
+

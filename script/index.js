@@ -94,15 +94,18 @@ myBengSelector.addEventListener("click", function getBengalImage() {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
-            getInfo(10, data);
+            getInfo(10, data)
         })
+        .catch(error => console.error(error));
 
     fetch(`${catImagesURL}&breed_ids=beng&${catAPI_Key}`)
         .then((data) => data.json())
         .then((data) => {
-            main2.style.backgroundImage = `url(${data[17].url})`;
-            imageDelay();
+            main2.style.backgroundImage = `url(${data[17].url})`
+            imageDelay()
         })
+        .catch(error => console.error(error));
+
     counter = 0;
 });
 
@@ -111,15 +114,17 @@ myAbysSelector.addEventListener("click", function getAbyssinianImage() {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
-            getInfo(0, data);
+            getInfo(0, data)
         })
 
     fetch(`${catImagesURL}&breed_ids=abys&${catAPI_Key}`)
         .then((data) => data.json())
         .then((data) => {
-            main2.style.backgroundImage = `url(${data[12].url})`;
-            imageDelay();
+            main2.style.backgroundImage = `url(${data[12].url})`
+            imageDelay()
         })
+        .catch(error => console.error(error));
+
     counter = 1;
 })
 
@@ -128,15 +133,17 @@ myRagdSelector.addEventListener("click", function getRagdImage() {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
-            getInfo(51, data);
+            getInfo(51, data)
         })
 
     fetch(`${catImagesURL}&breed_ids=ragd&${catAPI_Key}`)
         .then((data) => data.json())
         .then((data) => {
-            main2.style.backgroundImage = `url(${data[27].url})`;
-            imageDelay();
+            main2.style.backgroundImage = `url(${data[27].url})`
+            imageDelay()
         })
+        .catch(error => console.error(error));
+
     counter = 2;
 })
 
@@ -145,15 +152,16 @@ myMainSelector.addEventListener("click", function getMainImage() {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
-            getInfo(40, data);
+            getInfo(40, data)
         })
 
     fetch(`${catImagesURL}&breed_ids=mcoo&${catAPI_Key}`)
         .then((data) => data.json())
         .then((data) => {
-            main2.style.backgroundImage = `url(${data[4].url})`;
-            imageDelay();
+            main2.style.backgroundImage = `url(${data[4].url})`
+            imageDelay()
         })
+        .catch(error => console.error(error));
     counter = 3;
 })
 
@@ -179,8 +187,9 @@ const fetchButtons = () => {
     fetch(catURL)
     .then((data) => data.json())
     .then((data) => {
-        getInfoArrow(counter, data);
+        getInfoArrow(counter, data)
     })
+    .catch(error => console.error(error));
 
     fetch(`${photosArrURLs[counter]}`)
         .then((data) => data.json())
@@ -188,6 +197,7 @@ const fetchButtons = () => {
             imageDelay();
             main2.style.backgroundImage = `url(${data[photosArrIDs[counter]].url})`
         })
+        .catch(error => console.error(error));
 }
 
 myLeftButton.addEventListener("click", () => {
@@ -199,7 +209,7 @@ myLeftButton.addEventListener("click", () => {
     } 
 
     fetchButtons();
-})
+});
 
 myRightButton.addEventListener("click", () => {
 
@@ -210,7 +220,7 @@ myRightButton.addEventListener("click", () => {
     }
 
     fetchButtons();
-})
+});
 
 // Random Images //
 
@@ -226,6 +236,7 @@ function getRandomImage(id) {
             myRandomCatNames[id].innerText = `${data[num].id}`
             randomImagesURLs[id].href = `${data[num].url}`
         })
+        .catch(error => console.error(error));
 }
 
 let i = 0;
@@ -247,16 +258,19 @@ showBeng.addEventListener("click", function showInfo() {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
-            getInfo2(10, data);
+            getInfo2(10, data)
         })
+        .catch(error => console.error(error));
 })
 
 showAbys.addEventListener("click", function showInfo() {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
-            getInfo2(0, data);
+            getInfo2(0, data)
         })
+        .catch(error => console.error(error));
+
     console.log(showAbys);
 })
 
@@ -264,16 +278,18 @@ showRagd.addEventListener("click", function showInfo() {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
-            getInfo2(51, data);
+            getInfo2(51, data)
         })
+        .catch(error => console.error(error));
 })
 
 showMaine.addEventListener("click", function showInfo() {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
-            getInfo2(40, data);
+            getInfo2(40, data)
         })
+        .catch(error => console.error(error));
 })
 
 const catCorp = document.getElementById("cat-corp");
@@ -355,11 +371,6 @@ const catTitle3 = document.getElementById("cat-name-3");
 const catPost = document.getElementsByClassName("post");
 const bengalPost = document.getElementById("post-bengal");
 
-// const bengDescription = "A Bengal cat is a domestic cat breed that has a wild appearance with leopard-like spots or rosettes on its coat. <b>1,2,3,4</b> It is bred from the Asian leopard cat and other domestic cats, such as the Egyptian Mau, the Abyssinian, or the American shorthair. <b>1,3,4</b> It is a long, muscular, medium- to large-sized cat with a broad head, high cheekbones, round and wide eyes, and small and rounded ears. <b>1,5</b> It is a charismatic, playful, and smart cat that may be hypoallergenic. <b>1,2</b>";
-// const abysDescription = "The breed's distinctive appearance, seeming long, lean and finely colored compared to other cats, has been analogized to that of human fashion models. Personality-wise, the cats traditionally display active, curious attitudes in which they frequently follow owners around and encourage play. Their dog-like characteristics also involve a particular sense of affection and desire for interaction.";
-// const ragdDescription = "A ragdoll cat is a large and heavy breed of cat with a colorpoint coat and blue eyes. It has a semi-long and silky soft coat that may have white patterns. It is a slow-maturing breed that reaches full coat and color at about three years of age. It is an affectionate and intelligent cat that goes limp with pleasure when petted, hence its name. It has a long body, tail, and bones, and gives an impression of graceful movement and subdued power.";
-// const mainDescription = "The Maine Coon cat is a large, long-haired, and muscular breed that originated in North America, especially in Maine. It is one of the oldest natural breeds in the continent and the official state cat of Maine. It has a shaggy coat, tufted ears and paws, and a ringed tail that help it adapt to harsh climates and hunt rodents.";
-
 const bengDescriptionBtn = document.getElementById("bengal-description");
 const abysDescriptionBtn = document.getElementById("abyssinian-description");
 const ragdDescriptionBtn = document.getElementById("ragdoll-description");
@@ -407,8 +418,10 @@ bengDescriptionBtn.addEventListener("click", function changeDescription() {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
-            getTitle(10, data);
+            getTitle(10, data)
         }) 
+        .catch(error => console.error(error));
+
     appear1(); 
     counterPosts = 0;
 })
@@ -417,8 +430,9 @@ abysDescriptionBtn.addEventListener("click", function changeDescription() {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
-            getTitle(0, data);
+            getTitle(0, data)
         }) 
+        .catch(error => console.error(error));
     appear2(); 
     counterPosts = 1;
 })
@@ -427,8 +441,9 @@ ragdDescriptionBtn.addEventListener("click", function changeDescription() {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
-            getTitle(51, data);
+            getTitle(51, data)
         })  
+        .catch(error => console.error(error));
         appear3(); 
         counterPosts = 2;
 })
@@ -437,8 +452,9 @@ mainDescriptionBtn.addEventListener("click", function changeDescription() {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
-            getTitle(40, data);
+            getTitle(40, data)
         })  
+        .catch(error => console.error(error));
     appear4(); 
     counterPosts = 3;
 })

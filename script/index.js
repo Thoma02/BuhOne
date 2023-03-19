@@ -240,7 +240,7 @@ function getRandomImage(id) {
 }
 
 let i = 0;
-for(i = 0; i < 6; i++) {
+for(i = 0; i < 8; i++) {
     getRandomImage(i);
 }
 
@@ -341,7 +341,7 @@ catSolutionsBtn.addEventListener("click", transition3);
 
 catFoodsBtn.addEventListener("click", transition4);
 
-partnersBtnLeft.addEventListener("click", function transtionLeft() {
+partnersBtnRight.addEventListener("click", function transtionLeft() {
     let catCorpStyles = getComputedStyle(catCorp, null);
     if(catCorpStyles.left == '0px') {
         transition2();
@@ -354,7 +354,7 @@ partnersBtnLeft.addEventListener("click", function transtionLeft() {
     }
 })
 
-partnersBtnRight.addEventListener("click", function transtionRight() {
+partnersBtnLeft.addEventListener("click", function transtionRight() {
     let catCorpStyles = getComputedStyle(catCorp, null);
     if(catCorpStyles.left == '0px') {
         transition4();
@@ -424,6 +424,7 @@ bengDescriptionBtn.addEventListener("click", function changeDescription() {
 
     appear1(); 
     counterPosts = 0;
+    console.log(bengDescriptionBtn);
 })
 
 abysDescriptionBtn.addEventListener("click", function changeDescription() {
@@ -459,9 +460,7 @@ mainDescriptionBtn.addEventListener("click", function changeDescription() {
     counterPosts = 3;
 })
 
-// const leftIndex = () => {
-
-// }
+const nameIDs2 = [10, 0, 51, 40];
 
 descriptionBtnLeft.addEventListener("click", function changeDescriptionLeft() {
 
@@ -475,12 +474,18 @@ descriptionBtnLeft.addEventListener("click", function changeDescriptionLeft() {
         appear3()
     }
 
+    fetch(catURL)
+        .then((data) => data.json())
+        .then((data) => {
+            getTitle(nameIDs2[counterPosts], data)
+        }) 
+        .catch(error => console.error(error));
+
     if(counterPosts > 0 && counterPosts <= 3) {
         counterPosts -= 1;
     } else {
         counterPosts = 3;
-    } 
-    console.log(counterPosts);
+    }
 })
 
 descriptionBtnRight.addEventListener("click", function changeDescriptionLeft() {
@@ -495,12 +500,18 @@ descriptionBtnRight.addEventListener("click", function changeDescriptionLeft() {
         appear1()
     }
 
+    fetch(catURL)
+        .then((data) => data.json())
+        .then((data) => {
+            getTitle(nameIDs2[counterPosts], data)
+        }) 
+        .catch(error => console.error(error));
+
     if(counterPosts >= 0 && counterPosts < 3) {
         counterPosts += 1;
     } else {
         counterPosts = 0
     }
-    console.log(counterPosts);
 })
 
 

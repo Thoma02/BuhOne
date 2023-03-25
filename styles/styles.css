@@ -218,8 +218,10 @@ p, a {
 }
 
 #main-container-3 {
+  position: relative;
   background-color: #ebebeb;
   padding: 140px 5vw 140px 10vw;
+  overflow: hidden;
 }
 
 #main3-header h1 {
@@ -227,6 +229,74 @@ p, a {
   font-size: 48px;
   font-weight: 900;
   margin-bottom: 102px;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#random-image-btn-container {
+  position: absolute;
+  right: 80px;
+  top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#click {
+  font-size: 32px;
+  color: #ff7c01;
+  transform: rotate(30deg);
+  margin-bottom: 60px;
+  animation: blink 1.5s linear infinite;
+}
+
+#arrow {
+  font-size: 32px;
+  color: #ff7c01;
+  transform: rotate(30deg);
+}
+
+#image-generator {
+  margin-top: 64px;
+  padding-bottom: 50px;
+  animation: rotate 1.5s linear infinite;
+}
+
+#wait {
+  display: none;
+  position: absolute;
+  font-size: 82px;
+  color: #888686;
+  margin-right: 20%;
+  margin-top: 20%;
+  animation: blink 1.5s linear infinite;
+}
+
+#image-generator:hover {
+  cursor: pointer;
 }
 
 #main3-image-container {
@@ -385,6 +455,13 @@ p, a {
   cursor: pointer;
 }
 
+#main4-cats {
+  display: flex;
+  justify-content: space-between;
+  height: 124px;
+  overflow: hidden;
+}
+
 #main-container-5 {
   background-color: #ebebeb;
   padding: 100px 10vw;
@@ -403,15 +480,132 @@ p, a {
   flex-wrap: wrap;
   gap: 30px;
   margin-bottom: 50px;
-  height: 124px;
+  height: 264px;
   overflow: hidden;
 }
 
+@keyframes catAni {
+  12.5% {
+    background-size: 100% 80%;
+  }
+  25% {
+    background-size: 60% 100%;
+    padding-bottom: 100px;
+  }
+}
+@keyframes catAniAbys {
+  0% {
+    padding: 0;
+  }
+  12.5% {
+    padding-top: 100px;
+  }
+  25% {
+    padding: 0;
+  }
+  37.5% {
+    padding-bottom: 100px;
+  }
+  50% {
+    padding: 0 30px 100px;
+  }
+  62.5% {
+    padding: 0 40px 30px;
+  }
+  75% {
+    padding-top: 100px;
+  }
+  87.5%, 100% {
+    padding: 0;
+  }
+}
+@keyframes catAniDesc {
+  0% {
+    left: 50px;
+    top: 0;
+    transform: rotate(0deg);
+  }
+  12.5% {
+    left: 40%;
+    top: 0;
+    transform: rotate(180deg);
+  }
+  25% {
+    top: 0;
+    left: 80%;
+    transform: rotate(360deg);
+  }
+  37.5% {
+    left: 80%;
+    top: 200px;
+    transform: rotate(180deg);
+  }
+  50% {
+    left: 50%;
+    top: 200px;
+    transform: rotate(0deg);
+  }
+  62.5% {
+    left: 40px;
+    top: 0px;
+    transform: rotate(180deg);
+  }
+  75% {
+    left: 50px;
+    top: 200px;
+    transform: rotate(0deg);
+  }
+  87.5% {
+    left: 50px;
+    top: 0px;
+    transform: rotate(360deg);
+  }
+  100% {
+    left: 50px;
+    top: 0;
+    transform: rotate(720deg);
+    transition: transform 1s;
+  }
+}
 .cat-logos {
   position: absolute;
   display: flex;
   align-items: center;
   transition: all 0.5s ease;
+}
+
+#cat-corp-image {
+  height: 256px;
+  width: 256px;
+  background-size: 50% 50%;
+  animation: catAni 1s linear infinite;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+#abys {
+  width: 256px;
+  height: 256px;
+  animation: catAniAbys 1s linear infinite;
+}
+
+#beng {
+  width: 256px;
+  height: 256px;
+  animation: catAniAbys 1s linear infinite;
+}
+
+#ragd {
+  width: 256px;
+  height: 256px;
+  animation: catAniAbys 1s linear infinite;
+}
+
+#maine {
+  width: 256px;
+  height: 256px;
+  animation: catAniAbys 1s linear infinite;
+  animation-delay: 0.5s;
 }
 
 #cat-corp {
@@ -428,6 +622,15 @@ p, a {
 
 #cat-foods {
   left: 1000px;
+}
+
+.cat-corp-image-container-desc {
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  left: 0;
+  top: 0;
+  animation: catAniDesc 7s linear infinite;
 }
 
 .cat-logos h2 {

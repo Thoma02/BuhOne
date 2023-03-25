@@ -25,7 +25,7 @@ const randomImagesURLs = document.getElementsByClassName("image-src");
 const catDescription = document.getElementById("description");
 const getDescriptionButton = document.getElementById("description-button");
 
-const showBeng = document.getElementById("info-beng");
+const showBeng = document.querySelector("#info-beng");
 const showAbys = document.getElementById("info-abys");
 const showRagd = document.getElementById("info-ragd");
 const showMaine = document.getElementById("info-maine");
@@ -224,8 +224,28 @@ myRightButton.addEventListener("click", () => {
 
 // Random Images //
 
-function getRandomImage(id) {
+const imageGenerator = document.getElementById("image-generator");
+const wait = document.getElementById("wait");
 
+const makePersonWait = () => {
+    const art = randomNumber(2, 5)
+    imageGenerator.src = `assets/main5/icons/cat-company${art}.svg`
+    wait.style.display = "inline";
+    setTimeout(() => {
+        wait.style.display = "none";
+    }, 5000);
+}
+
+imageGenerator.addEventListener("click", (id) => {
+    makePersonWait();
+    getRandomImage(id);
+    let i = 0;
+    for(i = 0; i < 8; i++) {
+        getRandomImage(i)
+    }
+})
+
+function getRandomImage(id) {
     let num = randomNumber(1, 100);
 
     fetch(`${catImagesURL}&${catAPI_Key}`)
@@ -239,12 +259,26 @@ function getRandomImage(id) {
         .catch(error => console.error(error));
 }
 
+let promises = [];
 let i = 0;
 for(i = 0; i < 8; i++) {
-    getRandomImage(i);
-}
+    promises.push(getRandomImage(i));
+};
+
+Promise.all(promises).then((results) => {
+    results.forEach((img, i) => {
+        myRandomImages[i].style.backgroundImage = img.backgroundImage;
+        myRandomImages[i].style.backgroundSize = img.backgroundSize;
+        myRandomCatNames[i].innerText = img.catName;
+        randomImagesURLs[i].href = img.url;
+    })
+})
+
+
 
 // Cat Info //
+
+const catImageSrc = document.getElementById("cat-corp-image");
 
 const getInfo2 = (i, data) => {
     let name = data[i].name;
@@ -254,43 +288,46 @@ const getInfo2 = (i, data) => {
     catDescription.innerText = description;
 }
 
-showBeng.addEventListener("click", function showInfo() {
+function showInfoBeng() {
+    catImageSrc.src = "assets/main5/icons/cat-company5.svg"
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
             getInfo2(10, data)
         })
         .catch(error => console.error(error));
-})
+}
 
-showAbys.addEventListener("click", function showInfo() {
+const showInfoAbys = () => {
+    console.log(catImageSrc.src)
+    catImageSrc.src = "assets/main5/icons/cat-company2.svg"
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
             getInfo2(0, data)
         })
         .catch(error => console.error(error));
+}
 
-    console.log(showAbys);
-})
-
-showRagd.addEventListener("click", function showInfo() {
+const showInfoRagd = () => {
+    catImageSrc.src = "assets/main5/icons/cat-company3.svg"
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
             getInfo2(51, data)
         })
         .catch(error => console.error(error));
-})
+}
 
-showMaine.addEventListener("click", function showInfo() {
+const showInfoMaine = () => {
+    catImageSrc.src = "assets/main5/icons/cat-company4.svg"
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
             getInfo2(40, data)
         })
         .catch(error => console.error(error));
-})
+}
 
 const catCorp = document.getElementById("cat-corp");
 const catSons = document.getElementById("cat-sons");
@@ -333,15 +370,23 @@ const transition4 = () => {
     catSolutions.style.left = '960px';
 }
 
-catCorpBtn.addEventListener("click", transition1);
+const corpPixel = () => {
+    transition1();
+}
 
-catSonsBtn.addEventListener("click", transition2);
+const sonsPixel = () => {
+    transition2();
+}
 
-catSolutionsBtn.addEventListener("click", transition3);
+const solutionsPixel = () => {
+    transition3();
+}
 
-catFoodsBtn.addEventListener("click", transition4);
+const foodsPixel = () => {
+    transition4();
+}
 
-partnersBtnRight.addEventListener("click", function transtionLeft() {
+const leftPixel = () => {
     let catCorpStyles = getComputedStyle(catCorp, null);
     if(catCorpStyles.left == '0px') {
         transition2();
@@ -352,9 +397,9 @@ partnersBtnRight.addEventListener("click", function transtionLeft() {
     } else if(catCorpStyles.left == '320px') {
         transition1();
     }
-})
+}
 
-partnersBtnLeft.addEventListener("click", function transtionRight() {
+const rightPixel = () => {
     let catCorpStyles = getComputedStyle(catCorp, null);
     if(catCorpStyles.left == '0px') {
         transition4();
@@ -365,13 +410,13 @@ partnersBtnLeft.addEventListener("click", function transtionRight() {
     } else if(catCorpStyles.left == '320px') {
         transition3();
     }
-})
+}
 
 const catTitle3 = document.getElementById("cat-name-3");
 const catPost = document.getElementsByClassName("post");
 const bengalPost = document.getElementById("post-bengal");
 
-const bengDescriptionBtn = document.getElementById("bengal-description");
+const bengDescriptionBtn = document.querySelector("#bengal-description");
 const abysDescriptionBtn = document.getElementById("abyssinian-description");
 const ragdDescriptionBtn = document.getElementById("ragdoll-description");
 const mainDescriptionBtn = document.getElementById("maine-coon-description");
@@ -414,7 +459,7 @@ const appear4 = () => {
     catPost[3].style.zIndex = 1; 
 }
 
-bengDescriptionBtn.addEventListener("click", function changeDescription() {
+const showDescBeng = () => {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
@@ -425,9 +470,9 @@ bengDescriptionBtn.addEventListener("click", function changeDescription() {
     appear1(); 
     counterPosts = 0;
     console.log(bengDescriptionBtn);
-})
+}
 
-abysDescriptionBtn.addEventListener("click", function changeDescription() {
+const showDescAbys = () => {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
@@ -436,9 +481,9 @@ abysDescriptionBtn.addEventListener("click", function changeDescription() {
         .catch(error => console.error(error));
     appear2(); 
     counterPosts = 1;
-})
+}
 
-ragdDescriptionBtn.addEventListener("click", function changeDescription() {
+const showDescRagd = () => {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
@@ -447,9 +492,9 @@ ragdDescriptionBtn.addEventListener("click", function changeDescription() {
         .catch(error => console.error(error));
         appear3(); 
         counterPosts = 2;
-})
+}
 
-mainDescriptionBtn.addEventListener("click", function changeDescription() {
+const showDescMaine = () => {
     fetch(catURL)
         .then((data) => data.json())
         .then((data) => {
@@ -458,12 +503,11 @@ mainDescriptionBtn.addEventListener("click", function changeDescription() {
         .catch(error => console.error(error));
     appear4(); 
     counterPosts = 3;
-})
+}
 
 const nameIDs2 = [10, 0, 51, 40];
 
-descriptionBtnLeft.addEventListener("click", function changeDescriptionLeft() {
-
+const showDescLeft = () => {
     if(counterPosts == 0) {
         appear4()
     } else if(counterPosts == 1) {
@@ -486,10 +530,9 @@ descriptionBtnLeft.addEventListener("click", function changeDescriptionLeft() {
     } else {
         counterPosts = 3;
     }
-})
+}
 
-descriptionBtnRight.addEventListener("click", function changeDescriptionLeft() {
-
+const showDescRight = () => {
     if(counterPosts == 0) {
         appear2()
     } else if(counterPosts == 1) {
@@ -512,8 +555,7 @@ descriptionBtnRight.addEventListener("click", function changeDescriptionLeft() {
     } else {
         counterPosts = 0
     }
-})
-
+}
 
 
 

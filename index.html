@@ -65,75 +65,86 @@
         </div>
         <div id="main-container-3">
             <div id="main3-header">
+                <div id="random-image-btn-container">
+                    <span id="click">Click</span>
+                    <div id="arrow">-></div>
+                    <img id="image-generator" src="./assets/main5/icons/cat-company2.svg" alt="">
+                    <span id="wait">Wait!</span>
+                </div>
                 <p class="light-orange-text">Our Cats</p>
                 <h1>Your Photos</h1>
             </div>
             <div id="main3-image-container">
                 <a class="image-src" target="_blank" href="">
                     <div class="boxes">
-                    <p class="box-text"></p>
+                        <p class="box-text"></p>
                     </div>
                 </a>
                 <a class="image-src" target="_blank" href="">
                     <div class="boxes">
-                    <p class="box-text"></p>
+                        <p class="box-text"></p>
                     </div>
                 </a>
                 <a class="image-src" target="_blank" href="">
                     <div class="boxes">
-                    <p class="box-text"></p>
+                        <p class="box-text"></p>
                     </div>
                 </a>
                 <a class="image-src" target="_blank" href="">
                     <div class="boxes">
-                    <p class="box-text"></p>
+                        <p class="box-text"></p>
                     </div>
                 </a>
                 <a class="image-src" target="_blank" href="">
                     <div class="boxes">
-                    <p class="box-text"></p>
+                        <p class="box-text"></p>
                     </div>
                 </a>
                 <a class="image-src" target="_blank" href="">
                     <div class="boxes">
-                    <p class="box-text"></p>
+                        <p class="box-text"></p>
                     </div>
                 </a>
                 <a class="image-src" target="_blank" href="">
                     <div class="boxes">
-                    <p class="box-text"></p>
+                        <p class="box-text"></p>
                     </div>
                 </a>
                 <a class="image-src" target="_blank" href="">
                     <div class="boxes">
-                    <p class="box-text"></p>
+                        <p class="box-text"></p>
                     </div>
                 </a>
             </div>
         </div>
         <div id="main-container-4">
             <div id="main4-text">
-                <p class="light-orange-text">Cats</p>
+                <div id="main4-cats">
+                    <p class="light-orange-text">Cats</p>
+                    <div id="cat-corp-image-container">
+                        <img id="cat-corp-image" src="assets/main5/icons/cat-company5.svg" alt="">
+                    </div>
+                </div>
                 <h1 id="cat-name-2">Bengal</h1>
                 <p id="description">Bengals are a lot of fun to live with, but they're definitely not the cat for everyone, or for first-time cat owners. Extremely intelligent, curious and active, they demand a lot of interaction and woe betide the owner who doesn't provide it.</p>
             </div>
             <div id="main4-boxes-container">
-                <div id="info-beng" class="box">
+                <div onclick="showInfoBeng()" id="info-beng" class="box">
                     <h1>Bengal</h1>
                     <p>Alert, Agile, Energetic, Demanding, Intelligent</p>
                     <span class="show-info" href="">Show all info</span>
                 </div>
-                <div id="info-abys" class="box abyssinian">
+                <div onclick="showInfoAbys()" id="info-abys" class="box abyssinian">
                     <h1>Abyssinian</h1>
                     <p>Loyal, Inquisitive, Friendly, Quiet, Gentle</p>
                     <span class="show-info" href="">Show all info</span>
                 </div>
-                <div id="info-ragd" class="box">
+                <div onclick="showInfoRagd()" id="info-ragd" class="box">
                     <h1>Ragdoll</h1>
                     <p>Affectionate, Friendly, Gentle, Quiet, Easygoing</p>
                     <span class="show-info" href="">Show all info</span>
                 </div>
-                <div id="info-maine" class="box maine">
+                <div onclick="showInfoMaine()" id="info-maine" class="box maine">
                     <h1>Maine Coon</h1>
                     <p>Adaptable, Intelligent, Loving, Gentle, Independent</p>
                     <span class="show-info" href="">Show all info</span>
@@ -145,33 +156,41 @@
             <h1>Check them out</h1>
             <div id="logos-container">
                 <div id="cat-corp" class="cat-logos">
-                    <img src="assets/main5/icons/cat-company2.svg" alt="">
-                    <h2>Cat Corp.</h2>
+                    <div class="cat-corp-image-container">
+                        <img id="abys" class="cat-corp-image" src="assets/main5/icons/cat-company2.svg" alt="">
+                    </div>
+                    <!-- <h2>Cat Corp.</h2> -->
                 </div>
                 <div id="cat-sons" class="cat-logos">
-                    <img src="assets/main5/icons/cat-company3.svg" alt="">
-                    <h2>Cat Sons</h2>
+                    <div class="cat-corp-image-container">
+                        <img id="ragd" src="assets/main5/icons/cat-company3.svg" alt="">
+                    </div>
+                    <!-- <h2>Cat Sons</h2> -->
                 </div>
                 <div id="cat-solutions" class="cat-logos">
-                    <img src="assets/main5/icons/cat-company4.svg" alt="">
-                    <h2>Cat Solutions</h2>
+                    <div class="cat-corp-image-container">
+                        <img id="maine" src="assets/main5/icons/cat-company4.svg" alt="">
+                    </div>
+                    <!-- <h2>Cat Solutions</h2> -->
                 </div>
                 <div id="cat-foods" class="cat-logos">
-                    <img src="assets/main5/icons/cat-company5.svg" alt="">
-                    <h2>Cat Foods</h2>
+                    <div class="cat-corp-image-container">
+                        <img id="beng" src="assets/main5/icons/cat-company5.svg" alt="">
+                    </div>
+                    <!-- <h2>Cat Foods</h2> -->
                 </div>
             </div>
             <div class="sliders">
                 <div class="circle-slider">
-                    <div id="cat-corp-btn" class="circle"></div>
-                    <div id="cat-sons-btn" class="circle"></div>
-                    <div id="cat-solutions-btn" class="circle"></div>
-                    <div id="cat-foods-btn" class="circle"></div>
+                    <div onclick="corpPixel()" id="cat-corp-btn" class="circle"></div>
+                    <div onclick="sonsPixel()" id="cat-sons-btn" class="circle"></div>
+                    <div onclick="solutionsPixel()" id="cat-solutions-btn" class="circle"></div>
+                    <div onclick="foodsPixel()" id="cat-foods-btn" class="circle"></div>
                 </div>
                 <div class="button-slider">
-                    <div id="btn-left2" class="btn-switch"><</div>
+                    <div onclick="leftPixel()" id="btn-left2" class="btn-switch"><</div>
                     <div class="divider-white"></div>
-                    <div id="btn-right2" class="btn-switch">></div>
+                    <div onclick="rightPixel()" id="btn-right2" class="btn-switch">></div>
                 </div>
                 </div>
             </div>
@@ -181,6 +200,9 @@
             <h1 id="cat-name-3">Bengal</h1>
             <div id="cat-descriptions">
                 <div id="post-bengal" class="post">
+                    <div class="cat-corp-image-container-desc">
+                        <img id="beng2" src="assets/main5/icons/cat-company5.svg" alt="">
+                    </div>
                     <p>A Bengal cat is a domestic cat breed that has a wild appearance with leopard-like spots or rosettes on its coat. <b>[1,2,3,4]</b> It is bred from the Asian leopard cat and other domestic cats, such as the Egyptian Mau, the Abyssinian, or the American shorthair. <b>[1,3,4]</b> It is a long, muscular, medium- to large-sized cat with a broad head, high cheekbones, round and wide eyes, and small and rounded ears. <b>[1,5]</b> It is a charismatic, playful, and smart cat that may be hypoallergenic. <b>[1,2]</b></p>
                     <div class="catPhotoAndLinks">
                         <img src="https://cdn2.thecatapi.com/images/sPMOo3Jn2.jpg" alt="">
@@ -193,6 +215,9 @@
                     </div>
                 </div>
                 <div id="post-abyssinian" class="post">
+                    <div class="cat-corp-image-container-desc">
+                        <img id="beng2" src="assets/main5/icons/cat-company2.svg" alt="">
+                    </div>
                     <p>The breed's distinctive appearance, seeming long, lean and finely colored compared to other cats, has been analogized to that of human fashion models. Personality-wise, the cats traditionally display active, curious attitudes in which they frequently follow owners around and encourage play. <b>[1]</b></p>
                     <div class="catPhotoAndLinks">
                         <img src="https://cdn2.thecatapi.com/images/MJWtDz75E.jpg" alt="">
@@ -205,6 +230,9 @@
                     </div>
                 </div>
                 <div id="post-ragdoll" class="post">
+                    <div class="cat-corp-image-container-desc">
+                        <img id="beng2" src="assets/main5/icons/cat-company5.svg" alt="">
+                    </div>
                     <p>A ragdoll cat is a large and heavy breed of cat with a colorpoint coat and blue eyes. <b>[1,2,3]</b> It has a semi-long and silky soft coat that may have white patterns. <b>[2,3]</b> It is a slow-maturing breed that reaches full coat and color at about three years of age2. It is an affectionate and intelligent cat that goes limp with pleasure when petted, hence its name. <b>[4]</b> It has a long body, tail, and bones, and gives an impression of graceful movement and subdued power. <b>[2,5]</b></p>
                     <div class="catPhotoAndLinks">
                         <img src="https://cdn2.thecatapi.com/images/b2NdzJ36K.jpg" alt="">
@@ -220,6 +248,9 @@
                     </div>
                 </div>
                 <div id="post-maine-coon" class="post">
+                    <div class="cat-corp-image-container-desc">
+                        <img id="beng2" src="assets/main5/icons/cat-company4.svg" alt="">
+                    </div>
                     <p>The Maine Coon cat is a large, long-haired, and muscular breed that originated in North America, especially in Maine. <b>[1,2,3,4]</b> It is one of the oldest natural breeds in the continent and the official state cat of Maine1,5. It has a shaggy coat, tufted ears and paws, and a ringed tail that help it adapt to harsh climates and hunt rodents. <b>[2,3,4,5]</b></p>
                     <div class="catPhotoAndLinks">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Maine_Coon_cat_by_Tomitheos.JPG" alt="">
@@ -237,15 +268,15 @@
             </div>
             <div class="sliders">
                 <div class="circle-slider">
-                    <div id="bengal-description" class="circle circle-blue"></div>
-                    <div id="abyssinian-description" class="circle circle-blue"></div>
-                    <div id="ragdoll-description" class="circle circle-blue"></div>
-                    <div id="maine-coon-description" class="circle circle-blue"></div>
+                    <div onclick="showDescBeng()" id="bengal-description" class="circle circle-blue"></div>
+                    <div onclick="showDescAbys()" id="abyssinian-description" class="circle circle-blue"></div>
+                    <div onclick="showDescRagd()" id="ragdoll-description" class="circle circle-blue"></div>
+                    <div onclick="showDescMaine()" id="maine-coon-description" class="circle circle-blue"></div>
                 </div>
                 <div class="button-slider">
-                    <div id="btn-left3" class="btn-switch btn-switch-blue"><</div>
+                    <div onclick="showDescLeft()" id="btn-left3" class="btn-switch btn-switch-blue"><</div>
                     <div class="divider-white"></div>
-                    <div id="btn-right3" class="btn-switch btn-switch-blue">></div>
+                    <div onclick="showDescRight()" id="btn-right3" class="btn-switch btn-switch-blue">></div>
                 </div>
                 </div>
             </div>
@@ -257,11 +288,11 @@
                 <div id="contact-info">
                     <div class="contact">
                         <img src="assets/main7/icons/group.svg" alt="">
-                        <p>+7 (111) 222-33-44</p>
+                        <p>+49 (111) 222-33-44</p>
                     </div>
                     <div class="contact">
                         <img src="assets/main7/icons/frame.svg" alt="">
-                        <p>order@cat-one.ru</p>
+                        <p>order@cat-one.de</p>
                     </div>
                 </div>
               </div>
